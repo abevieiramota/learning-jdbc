@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import org.postgresql.copy.CopyManager;
 import org.postgresql.core.BaseConnection;
 
-public class Main {
+public class CopyIn {
 
 	public static void main(String[] args)
 			throws ClassNotFoundException, SQLException, IOException, URISyntaxException {
@@ -21,7 +21,7 @@ public class Main {
 
 			// NULL = 'NULL' como indicador de que a coluna deve ser nula
 			// ENCODING = 'ISO-8859-1'
-			cm.copyIn("COPY copyin FROM STDIN NULL 'NULL' ENCODING 'ISO-8859-1'", is);
+			cm.copyIn("COPY pessoa FROM STDIN NULL 'NULL' ENCODING 'ISO-8859-1'", is);
 		}
 	}
 

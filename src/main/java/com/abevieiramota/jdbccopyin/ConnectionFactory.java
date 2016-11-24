@@ -18,11 +18,13 @@ public class ConnectionFactory {
 		// com as propriedades user, pass e db
 		Properties jdbcProperties = new Properties();
 		try (InputStream is = ConnectionFactory.class.getClassLoader().getResourceAsStream("jdbc.properties")) {
-
+			if(is == null) {
+				throw new IllegalStateException("poxa, n achei o jdbc.properties em main/resources :~");
+			}
 			jdbcProperties.load(is);
 		} catch (IOException e) {
 
-			throw new IllegalStateException("Macho, joga esse jdbc.properties no build path porra!");
+			throw new IllegalStateException("Macho, to conseguindo ler não oh...");
 		}
 
 		String user = jdbcProperties.getProperty("user");
