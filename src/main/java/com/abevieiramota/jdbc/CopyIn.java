@@ -1,4 +1,4 @@
-package com.abevieiramota.jdbccopyin;
+package com.abevieiramota.jdbc;
 
 import java.io.IOException;
 import java.io.InputStream;
