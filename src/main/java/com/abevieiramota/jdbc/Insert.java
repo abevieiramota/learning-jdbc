@@ -19,6 +19,7 @@ public class Insert {
 				PreparedStatement stmt = conn.prepareStatement("insert into pessoa values (?, ?, ?)",
 						Statement.RETURN_GENERATED_KEYS)) {
 
+			// POSIÇÃO COMEÇA EM 1!!!!!!!!!
 			stmt.setString(1, "Abelardo Vieira Mota");
 			stmt.setInt(2, 100);
 			stmt.setDate(3, new java.sql.Date(new Date().getTime()));
