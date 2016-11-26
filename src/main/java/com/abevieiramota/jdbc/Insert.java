@@ -44,11 +44,12 @@ public class Insert {
 		boolean resultado = stmt.execute();
 		System.out.println("Resultado: " + resultado);
 
-		ResultSet resultSet = stmt.getGeneratedKeys();
+		try (ResultSet resultSet = stmt.getGeneratedKeys()) {
 
-		while (resultSet.next()) {
-			int id = resultSet.getInt("id");
-			System.out.println("Id gerado: " + id);
+			while (resultSet.next()) {
+				int id = resultSet.getInt("id");
+				System.out.println("Id gerado: " + id);
+			}
 		}
 	}
 }
