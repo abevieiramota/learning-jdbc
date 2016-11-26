@@ -12,7 +12,7 @@ public class Read {
 
 	public static void main(String[] args)
 			throws ClassNotFoundException, SQLException, URISyntaxException, IOException {
-		try (Connection conn = ConnectionFactory.instance();
+		try (Connection conn = new ConnectionFactory().getPooledConnection();
 				InputStream is = ConnectionFactory.class.getClassLoader().getResourceAsStream("arquivo.csv");
 				Statement stmt = conn.createStatement()) {
 			boolean resultado = stmt.execute("select * from pessoa");

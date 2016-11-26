@@ -13,13 +13,14 @@ public class Insert {
 
 	public static void main(String[] args)
 			throws ClassNotFoundException, SQLException, URISyntaxException, IOException {
-		try (Connection conn = ConnectionFactory.instance();
+		try (Connection conn = new ConnectionFactory().getConnection();
 				PreparedStatement stmt = conn.prepareStatement("insert into pessoa values (?, ?, ?)",
 						Statement.RETURN_GENERATED_KEYS)) {
 
 			conn.setAutoCommit(false);
 			try {
 				extracted("Abelardo", 27, new Date(), stmt);
+				Thread.sleep(1000000l);
 				extracted("Juliana", 28, new Date(), stmt);
 				conn.commit();
 			} catch (Exception ex) {
